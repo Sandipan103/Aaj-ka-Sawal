@@ -27,7 +27,7 @@ void sortColors(vector<int>& nums) {
 
 
 
-// approach -> 1
+// approach -> 3
 // T.C  O(N) + O(N)
 // S>C  O(1)
 void sortColors(vector<int>& nums) {
