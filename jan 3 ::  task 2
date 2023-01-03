@@ -1,0 +1,10 @@
+void sortColors(vector<int>& nums) {
+        int h[3] = {0};
+        for(int i=0; i<nums.size(); i++)
+        h[nums[i]]++;
+        for(int i=0; i<nums.size(); i++)    {
+            if(i < h[0])    nums[i] = 0;
+            else if(i < h[0] + h[1])    nums[i] = 1;
+            else    nums[i] = 2;
+        }
+    }
