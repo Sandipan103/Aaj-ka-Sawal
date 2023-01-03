@@ -1,3 +1,19 @@
+// approach -> 1
+// T.C  O(N)
+// S>C  O(1)
+void sortColors(vector<int>& nums) {
+        int s = 0, mid = 0, e = nums.size() - 1;
+        while(mid <= e)  {
+            if(nums[mid] == 0)  swap(nums[mid], nums[s++]);
+            else if(nums[mid] == 2)   swap(nums[mid], nums[e--]);
+            else mid++;
+        }
+    }
+
+
+// approach -> 2
+// T.C  O(N) + O(N)   
+// S>C  O(1)
 void sortColors(vector<int>& nums) {
         int h[3] = {0};
         for(int i=0; i<nums.size(); i++)
@@ -10,7 +26,10 @@ void sortColors(vector<int>& nums) {
     }
 
 
-// 2nd method
+
+// approach -> 1
+// T.C  O(N) + O(N)
+// S>C  O(1)
 void sortColors(vector<int>& nums) {
         int s = 0, e = nums.size() - 1;
         for(int i=0; i<nums.size(); i++)    {
