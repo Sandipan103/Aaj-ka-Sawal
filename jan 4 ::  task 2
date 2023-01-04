@@ -1,0 +1,36 @@
+void rotate(vector<vector<int>>& matrix) {
+        // optimal solution 
+        // time complexiti is O(N^2)
+        // space complexiti is O(1) ==> all work done in the given matrix
+
+        // method ==> ------
+        // step - 1 ::  transpose the given matrix
+        // step - 2 ::  reverse all the rows . done
+
+        int n = matrix.size();
+        for(int i=0; i<n; i++)  {
+            for(int j=0; j<i; j++)  {
+                swap(matrix[i][j], matrix[j][i]);
+            }
+        }
+
+        for(int i=0; i<n; i++)  {
+            reverse(matrix[i].begin(), matrix[i].end());
+        }
+
+
+
+
+        // brute force method 
+        // time complexiti is O(N^2)
+        // space complexiti is O(N^2) ==> for creating a copy of given matrix
+
+        // vector<vector<int>> ans = matrix;
+        // int n = matrix.size();
+
+        // for(int i=0; i<n; i++)  {
+        //     for(int j=0; j<n; j++)  {
+        //         matrix[i][j] = ans[n - 1- j][i];
+        //     }
+        // }
+    }
