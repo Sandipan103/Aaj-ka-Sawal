@@ -1,3 +1,5 @@
+// approach - 1
+
 int convertFive(int n) {
     // Your code here
     int ans = 0, i = 0;
@@ -8,4 +10,21 @@ int convertFive(int n) {
         n = n / 10;
     }
     return ans;
+}
+
+
+
+// approach - 2
+
+int convertFive(int n) {
+    // Your code here
+    string s = to_string(n);
+    int i = 0;
+    while(i < s.length())   {
+        if(s[i] == '0') s[i] = '5';
+        i++;
+    }
+    
+    n = stoi(s);
+    return n;
 }
