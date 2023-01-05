@@ -1,0 +1,11 @@
+int convertFive(int n) {
+    // Your code here
+    int ans = 0, i = 0;
+    while(n)    {
+        int d = n % 10;
+        if(d == 0)  d = 5;
+        ans += d * pow(10, i++);
+        n = n / 10;
+    }
+    return ans;
+}
