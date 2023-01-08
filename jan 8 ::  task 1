@@ -1,0 +1,13 @@
+void pushZerosToEnd(int arr[], int n) {
+	    // code here
+	    int i = 0, j = 0;
+	    
+	    while(i < n)    {
+	        if(arr[i] != 0)
+	            swap(arr[i], arr[j++]);
+	        i++;
+	    }
+	    
+	    while(j < n)    
+	        arr[j++] = 0;
+	}
