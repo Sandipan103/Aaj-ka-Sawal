@@ -1,0 +1,12 @@
+int countPrefixes(vector<string>& words, string s) {
+        int cnt = 0, j = 0;
+        for(int i=0; i<words.size(); i++)   {
+            while(j <= s.length() && words[i][j] == s[j]) {
+                j++;
+            }
+            if(j >= words[i].length())
+            cnt++;
+            j = 0;
+        }
+        return cnt;
+    }
