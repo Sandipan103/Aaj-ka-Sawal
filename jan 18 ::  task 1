@@ -1,0 +1,26 @@
+class Solution {
+private:
+    void insertAtPosition(vector<int>& ans, int index, int val) {
+        int n = ans.size(), last = ans[n - 1];
+        if(index == n)  {
+            ans.push_back(val);
+            return;
+        }
+        for(int i=n-1; i>index; i--)   
+            ans[i] = ans[i - 1];
+
+        ans[index] = val;
+        ans.push_back(last);
+    }  
+
+
+public:
+    vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
+        vector<int> ans;
+        ans.push_back(nums[0]);
+        for(int i=1; i<index.size(); i++)   
+            insertAtPosition(ans, index[i], nums[i]);
+        
+        return ans;
+    }
+};
