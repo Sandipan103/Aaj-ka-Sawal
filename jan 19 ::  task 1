@@ -1,0 +1,17 @@
+// time complexity :: O(n)
+// space complexity :: O(1)
+
+
+class Solution {
+public:
+    bool areOccurrencesEqual(string s) {
+        int h[26] = {0};
+        for(int i=0; i<s.length(); i++)
+        h[s[i] - 'a']++;
+        int cnt = h[s[0] - 'a'];
+        for(int i=0; i<26; i++) {
+            if(h[i] != 0 && h[i] != cnt)    return false;
+        }
+        return true;
+    }
+};
