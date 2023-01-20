@@ -1,0 +1,29 @@
+// time complexity ::  O(N)
+  // for prime vector making O(long(long(n))
+  // for count how many primes are their O(n)
+  
+  
+// space complexity :: O(N)
+  // for making the vecotr of prime
+  
+  
+  
+  
+class Solution {
+public:
+    int countPrimes(int n) {
+        vector<bool> prime(n + 1, true);
+        prime[0] = prime[1] = false;
+        int cnt = 0;
+
+        for(int i=2; i*i<n; i++)    
+            if(prime[i] == true)    
+                for(int j=i*i; j<n; j=j+i)
+                    prime[j] = false;
+
+        for(int i=1; i<n; i++)  
+            if(prime[i] == true)    cnt++;
+
+        return cnt;
+    }
+};
