@@ -1,0 +1,45 @@
+// time complexity ::  O(1)
+  // for prime vector making O(long(long(1010))
+  
+  
+// space complexity :: O(1)
+  // for making the vecotr of prime
+  
+  
+
+# include <bits/stdc++.h>
+using namespace std;
+ 
+int main()  {
+    vector<bool> prime(1010, true);
+    prime[0] = false;   prime[1] = false;
+    for(int i=2; i*i<1010; i++) {
+        if(prime[i] == true)    {
+            for(int j=i*i; j<1010; j=j+i)
+            prime[j] = false;
+        }
+    }
+ 
+    int arr[169] = {0}, x = 0;
+    for(int i=0; i<1010; i++)   {
+        if(prime[i] == true)
+        arr[x++] = i;
+    }
+ 
+ 
+    int n, k, cnt = 0;
+    cin >> n >> k;
+    
+    for(int i=5; i<169 && arr[i]<=n; i++) {
+        for(int j=0; j<169 && j<i-1; j++)  {
+            if(arr[j] + arr[j + 1] + 1 == arr[i])
+            cnt++;
+        }
+    }
+    
+    if(cnt >= k)    
+    cout << "YES" << endl;
+    else
+    cout << "NO" << endl;
+    return 0;
+}
