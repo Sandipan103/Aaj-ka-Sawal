@@ -1,3 +1,5 @@
+// 1st approach :  tc = O(N)   sc O(N) + O(N)   
+
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
@@ -11,6 +13,23 @@ public:
             if(mp.find(s[i]) == mp.end())   mp[s[i]] = t[i];
             else if(mp[s[i]] != t[i]) return false;
         }
+        return true;
+    }
+};
+
+
+// 2nd approach :   tc = O(N)   sc O(1)
+
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        int ht[256] = {0}, hs[256] = {0};
+
+        for(int i=0; i<s.length(); i++) {
+            if(hs[s[i]] != ht[t[i]])    return false;
+            hs[s[i]] = ht[t[i]] = i+1;
+        }
+        
         return true;
     }
 };
