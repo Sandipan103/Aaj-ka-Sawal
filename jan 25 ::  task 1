@@ -1,0 +1,51 @@
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        
+        // approach :: put all element of nums2 in nums1
+        // then sort the nums1
+
+        for(int i=m; i<n+m; i++)    {
+            nums1[i] = nums2[i - m];
+        }
+
+        sort(nums1.begin(), nums1.end());
+        // tc :: O(M) + O((N + M) log(N + M)) == O((N + M) log(N + M))
+        // sc :: O(1)
+
+        // approach :: create a vector and put element in that in sorted order
+        // // after that put the element in the nums1
+
+        // int i = 0, j = 0;
+        // vector<int> temp;
+        // while(i < m && j < n)   {
+        //     if(nums1[i] < nums2[j]) {
+        //         temp.push_back(nums1[i]);
+        //         i++;
+        //     }
+        //     else    {
+        //         temp.push_back(nums2[j]);
+        //         j++;
+        //     }
+        // }
+
+        // while(i < m)    {
+        //     temp.push_back(nums1[i]);
+        //     i++;
+        // }
+
+        // while(j < n)    {
+        //     temp.push_back(nums2[j]);
+        //     j++;
+        // }
+
+        // i = 0;
+        // while(i < n + m)    {
+        //     nums1[i] = temp[i];
+        //     i++;
+        // }
+
+        // tc :: O(N + M)
+        // sc :: O(N + M)
+    }
+};
