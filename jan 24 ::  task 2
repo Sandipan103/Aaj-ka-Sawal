@@ -1,0 +1,17 @@
+long maximumSumSubarray(int K, vector<int> &Arr , int N){
+        // code here 
+        long maxi = 0, sum = 0, i, j;
+        
+        for(int i=0; i<K; i++)  
+            maxi += Arr[i];
+        
+        i = 0;  j = K;   sum = maxi;
+        
+        while(j < N)    {
+            sum = sum + Arr[j] - Arr[i];
+            j++;    i++;
+            maxi = max(maxi, sum);
+        }
+        
+        return maxi;
+    }
