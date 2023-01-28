@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int divisorSubstrings(int num, int k) {
+        int cnt = 0;
+        string s = to_string(num), temp = "";
+        for(int  i=0; i<=s.length() - k; i++)    {
+            temp = s.substr(i, k);
+            int x = stoi(temp);
+            if(x != 0 && num % x == 0)  cnt++;
+        }
+        return cnt;
+    }
+};
