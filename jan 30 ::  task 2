@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int M = 1000000007;
+
+    int fact(int n) {
+        int ans = 1;
+        for(int i=1; i<=n; i++) 
+            ans = (ans * 1LL * i) % M;
+
+        return ans % M;
+    }
+
+    int numPrimeArrangements(int n) {
+
+        vector<bool> prime(105, true);
+        prime[0] = prime[1] = false;
+
+        for(int i=2; i*i<105; i++)  {
+            if(prime[i] == true)    {
+                for(int j=i*i; j<105; j=j+i)
+                prime[j] = false;
+            }
+        }
+
+        int p = 0, c = 0;
+        for(int i=1; i<=n; i++) {
+            if(prime[i] == true)    p++;
+        }
+
+        int ans = (fact(p) * 1LL * fact(n - p)) % M;
+        return ans;
+
+    }
+};
