@@ -1,0 +1,25 @@
+class Solution {
+  public:
+    int sumOfAll(int l, int r){
+        vector<bool> prime(10005, true);
+        vector<int> sum(10005, 0);
+        
+        prime[0] = prime[1] = false;
+        
+        for(int i=2; i<10005; i++)  {
+            if(prime[i] == true)    {
+                sum[i] = i;
+                for(int j=2*i; j<10005; j=j+i){
+                    prime[j] = false;
+                    sum[j] += i;
+                }
+            }
+        }
+        
+        int ans = 0;
+        for(int i=l; i<=r; i++)   
+            ans += sum[i];
+        
+        return ans;
+    }
+};
