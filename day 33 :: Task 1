@@ -1,0 +1,19 @@
+class MyCalendar {
+private:
+    vector<pair<int, int> > cal;
+
+public:
+    bool book(int start, int end) {
+        for(auto p : cal)   {
+            if(start <= p.first && end >= p.second)   
+            return false;
+            if(start > p.first && start < p.second)
+            return false;
+            if(end > p.first && end < p.second)
+            return false;
+        }
+        pair<int, int> p = make_pair(start, end);
+        cal.push_back(p);
+        return true;
+    }
+}
