@@ -1,0 +1,28 @@
+class Solution {
+private:
+    bool check(int* h1, int* h2)    {
+        for(int i=0; i<26; i++) {
+            if(h1[i] != h2[i])
+            return false;
+        }
+        return true;
+    }
+public:
+    vector<int> findAnagrams(string s, string p) {
+        vector<int> ans;
+        int k = p.length();
+        if(s.length() < p.length()) return ans;
+        int h1[26] = {0}, h2[26] = {0};
+        for(int i=0; i<k; i++) {
+            h2[p[i] - 'a']++;
+            h1[s[i] - 'a']++;
+        }
+        if(check(h1, h2))   ans.push_back(0);
+        for(int i=k; i<s.length(); i++)    {
+            h1[s[i] - 'a']++;
+            h1[s[i - k] - 'a']--;
+            if(check(h1, h2))   ans.push_back(i - k + 1);
+        }
+        return ans;
+    }
+};
