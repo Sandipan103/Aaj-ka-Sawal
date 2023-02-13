@@ -1,12 +1,13 @@
 class Solution{
 public:
     int maxInstance(string s)   {
-        int h[26] = {0};
-        for(int i=0; i<s.length(); i++) h[s[i] - 'a']++;
-        int mini = min(h['a' - 'a'], h['b' - 'b']);
-        mini = min(mini, h['l' - 'l']);
-        mini = min(mini, h['o' - 'o']);
-        mini = min(mini, h['n' - 'n']);
+        map<char, int> mp;
+        for(int i=0; i<s.length(); i++) mp[s[i]]++;
+        int mini = min(mp['l'], mp['o']);
+        mini = mini / 2;
+        mini = min(mini, mp['a']);
+        mini = min(mini, mp['b']);
+        mini = min(mini, mp['n']);
         return mini;
     }
 };
